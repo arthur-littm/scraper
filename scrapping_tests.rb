@@ -28,7 +28,15 @@ doc.css('.item').each do |element|
   website = 'desktop3dprinter'
   products << {name: name, price_vat: price_with_vat, price_no_vat: price_no_vat, website: website}
 end
-p products
+# doc.css('#kuPagination1 .kukuCurrent + a').click()
+# doc.css('.item').each do |element|
+#   name = element.css('.product-name').text.strip
+#   price_with_vat = element.css('.exvat > span').text.strip
+#   price_no_vat = element.css('.lowerprice50l > span').text.strip
+#   website = 'desktop3dprinter'
+#   products << {name: name, price_vat: price_with_vat, price_no_vat: price_no_vat, website: website}
+# end
+p products.count
 
 
 
