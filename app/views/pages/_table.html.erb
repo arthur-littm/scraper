@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Site</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% products.each do |product| %>
+      <tr>
+        <td><%= product[:name] %></td>
+        <td><a href="<%= product[:url] %>"><%= product[:website] %></a></td>
+        <td><%= product[:price] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

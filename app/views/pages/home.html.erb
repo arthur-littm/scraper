@@ -1,33 +1,22 @@
-<div class="container">
-  <h1>Products <small class="badge"><%= @products.count %></small></h1>
-  <ul>
-    <li><strong>Desktop 3d Printer</strong> - <%= @products.count {|p| p[:website] == 'desktop3dprinter' } %> products found</li>
-    <li><strong>Go Print 3d</strong> - <%= @products.count {|p| p[:website] == 'goprint3d' } %> products found</li>
-  </ul>
+<% total = @desktop3dprinter_products.count +  @goprint3d_products.count %>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Website</th>
-        <th>Price (excl. VAT)</th>
-        <th>Price (incl. VAT)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @products.each do |product| %>
-        <tr>
-          <td><%= product[:name] %></td>
-          <td><a href="<%= product[:url] %>"><%= product[:website] %></a></td>
-          <td><%= product[:price_no_vat] %></td>
-          <td><%= product[:price_vat] %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="container">
+  <h1>Products <small class="badge"><%= total %></small></h1>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <h3 class="text-center">Desktop 3d Printer <small><%= @desktop3dprinter_products.count %> products found</small></h3>
+      <%= render 'table', products: @desktop3dprinter_products %>
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <h3 class="text-center">Go Print 3d <small><%= @goprint3d_products.count %> products found</small></h3>
+      <%= render 'table', products: @goprint3d_products %>
+    </div>
+  </div>
+
 
 </div>
 
 <%= content_for(:products) do %>
-  <%= @products.count %>
+  <%= total %>
 <% end %>
