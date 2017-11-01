@@ -15,3 +15,7 @@
     </div>
   <% end %>
 </div>
+
+<%= content_for(:products) do %>
+  <%= @products.count %>
+<% end %>
