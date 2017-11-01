@@ -1,19 +1,31 @@
 <div class="container">
   <h1>Products <small class="badge"><%= @products.count %></small></h1>
-  <% @products.each do |product| %>
+  <ul>
+    <li><strong>Desktop 3d Printer</strong> - <%= @products.count {|p| p[:website] == 'desktop3dprinter' } %> products found</li>
+    <li><strong>Go Print 3d</strong> - <%= @products.count {|p| p[:website] == 'goprint3d' } %> products found</li>
+  </ul>
 
-    <div class="product">
-      <img src="<%= product[:image_url] %>" alt="">
-      <div class="product-body">
-        <p><strong><%= product[:name] %></strong></p>
-        <p><a href="<%= product[:url] %>"><%= product[:website] %></a></p>
-      </div>
-      <div class="product-price">
-        <p class="price bold">excl. VAT: <%= product[:price_no_vat] %></p>
-        <p class="price light">incl. VAT: <%= product[:price_vat] %></p>
-      </div>
-    </div>
-  <% end %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Website</th>
+        <th>Price (excl. VAT)</th>
+        <th>Price (incl. VAT)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product[:name] %></td>
+          <td><a href="<%= product[:url] %>"><%= product[:website] %></a></td>
+          <td><%= product[:price_no_vat] %></td>
+          <td><%= product[:price_vat] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 </div>
 
 <%= content_for(:products) do %>
