@@ -1,9 +1,17 @@
 <div class="container">
-  <h1>Products</h1>
+  <h1>Products <small class="badge"><%= @products.count %></small></h1>
   <% @products.each do |product| %>
-    <div class="card">
-      <h3><%= product[:name] %> <%= product[:price] %></h3>
-      <p><%= product[:website] %></p>
+
+    <div class="product">
+      <img src="<%= product[:image_url] %>" alt="">
+      <div class="product-body">
+        <p><strong><%= product[:name] %></strong></p>
+        <p><a href="<%= product[:url] %>"><%= product[:website] %></a></p>
+      </div>
+      <div class="product-price">
+        <p class="price bold">excl. VAT: <%= product[:price_no_vat] %></p>
+        <p class="price light">incl. VAT: <%= product[:price_vat] %></p>
+      </div>
     </div>
   <% end %>
 </div>

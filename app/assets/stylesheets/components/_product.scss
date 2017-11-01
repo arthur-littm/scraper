@@ -1,0 +1,38 @@
+.product {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+}
+.product:last-child {
+  border-bottom: none;
+}
+.product-body {
+  flex-grow: 1;
+}
+.product-body {
+  padding-left: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+.product-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.product-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.product-body p {
+  margin: 6px 0;
+}
+.product-price {
+  font-size: 14px;
+  font-weight: bold;
+}
+.price.bold {
+  font-weight: bold;
+}
+.price.light {
+  font-weight: lighter;
+}
